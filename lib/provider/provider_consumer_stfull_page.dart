@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'provider_widgets/display_text_consumer_stfull.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -15,8 +17,6 @@ class MyApp extends StatelessWidget {
       );
 }
 
-final myProvider = Provider((ref) => 'Test RiverPod stfull');
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -27,15 +27,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Consumer(
-          builder: (context, ref, child) {
-            final text = ref.watch(myProvider);
-            return Text(text);
-          },
-        ),
-      ),
+    return const Scaffold(
+      body: DisplayTextConsumerStFull(),
     );
   }
 }
